@@ -33,12 +33,6 @@ header.play-header {
   margin-top: 75px;
 }
 
-.play-docs {
-  background: $gray;
-  padding-bottom: 2rem;
-  padding-top: 2rem;
-}
-
 /* -----------------------
  * Form
  * ----------------------- */
@@ -89,5 +83,31 @@ header.play-header {
     border: dashed $blue;
     border-width: 0 1px 1px;
     padding: 1rem;
+  }
+}
+
+
+/* -----------------------
+ * Documentation
+ * ----------------------- */
+
+.play-docs {
+  background: $gray;
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  section {
+    display: none;
+    padding: 2rem 1.5rem;
+  }
+
+  section[data-doc=default] {
+    display: block;
   }
 }

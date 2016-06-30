@@ -21,7 +21,12 @@ var doc = {
       e.preventDefault();
       _this.paste(this);
     });
+
+    $('.play-form .dropdown-toggle').click(function() {
+      _this.updateDocumentation(this.id);
+    })
   },
+
 
   /* ---
    * FUNCTION: generate()
@@ -32,6 +37,7 @@ var doc = {
     var code = $('#code').val();
     $('#output').html(code);
   },
+
 
   /* ---
    * FUNCTION: copy()
@@ -44,6 +50,7 @@ var doc = {
     document.getSelection().removeAllRanges();
   },
 
+
   /* ---
    * FUNCTION: clear()
    *    When a user clicks on the "start over" button, the contents of the field deleted
@@ -51,7 +58,9 @@ var doc = {
   clear: function() {
     $('#code').val('');
     this.generate();
+    this.updateDocumentation('default');
   },
+
 
   /* ---
    * FUNCTION: paste()
@@ -65,8 +74,19 @@ var doc = {
     var currentCode = $('#code').val();
     $('#code').val(currentCode + html);
     this.generate();
+  },
+
+
+  /* ---
+   * FUNCTION: updateDocumentation()
+   *    Display documentation in the sidebar, based on a passed-in ID.
+   */
+  updateDocumentation: function(id) {
+    $('.play-docs section').hide();
+    $('.play-docs section[data-doc=' + id + ']').show();
   }
 };
+
 
 $(document).ready(function() {
   doc.init();

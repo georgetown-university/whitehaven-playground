@@ -2,31 +2,8 @@
 
 <div class="container-fluid play-content">
   <div class="row">
-    <main class="col-xs-12 col-md-9">
-
-      <section class="play-form">
-        {% include options.html %}
-        
-        <textarea id="code" placeholder="Type in your code here"></textarea>
-        <button class="btn btn-sm btn-danger" id="generate">Generate</button>
-        <button class="btn btn-sm btn-success" id="copy">Copy code</button>
-        <button class="btn btn-sm btn-info pull-md-right" id="clear">Start Over</button>
-      </section>
-
-      <section class="play-output">
-        <h2>Output</h2>
-        <div id="output" class="output-block"></div>
-      </section>
-
-    </main>
-
-    <aside class="col-xs-12 col-md-3 play-docs">
-      <h2>Documentation</h2>
-
-      {{content}}
-    </aside>
+    {{content}}
   </div>
 </div>
 
-{% include templates.html %}
 {% include footer.html %}
