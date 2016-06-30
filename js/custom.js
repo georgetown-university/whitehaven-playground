@@ -82,7 +82,7 @@ var doc = {
   showErrors: function(errors) {
     $('#error section').hide();
 
-    if (errors) {
+    if (errors.length) {
       errors.forEach(function(el) {
         $(el).show(); 
       });
