@@ -1,0 +1,93 @@
+---
+---
+
+/* -----------------------
+ * Variables
+ * ----------------------- */
+
+$blue: #011e41;
+$maroon: #8a2432;
+$white: #fff;
+$gray: #eee;
+
+
+/* -----------------------
+ * Global
+ * ----------------------- */
+
+header.play-header {
+  background: $blue;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  h1 {
+    color: $white;
+    margin: 0.65rem 0;
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+}
+
+.play-content {
+  margin-top: 75px;
+}
+
+.play-docs {
+  background: $gray;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+/* -----------------------
+ * Form
+ * ----------------------- */
+
+.play-form {
+  margin: 2rem 2rem 2rem 0;
+
+  textarea#code {
+    border: solid $maroon;
+    border-width: 1px 1px 1px 1rem;
+    font-family: monospace;
+    height: 15rem;
+    outline: none;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  #options {
+    margin: 1rem 0;
+
+    .dropdown {
+      display: inline;
+    }
+
+    .btn {
+      text-transform: none;
+    }
+  }
+}
+
+
+/* -----------------------
+ * Output
+ * ----------------------- */
+
+.play-output {
+  margin: 3rem 2rem 2rem 0;
+
+  & > h2 {
+    background: $blue;
+    color: $white;
+    font-size: 1.25rem;
+    margin: 0;
+    padding: 0.5rem;
+  }
+
+  #output {
+    border: dashed $blue;
+    border-width: 0 1px 1px;
+    padding: 1rem;
+  }
+}

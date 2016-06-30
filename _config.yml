@@ -1,0 +1,6 @@
+title: Whitehaven Code Playground
+baseurl: '/whitehaven-code'
+production_url: https://georgetown-university.github.io/whitehaven-code
+sass_dir: _sass
+sass: 
+  style: compressed
