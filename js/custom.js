@@ -74,6 +74,11 @@ var doc = {
     this.showErrors(errors);
   },
 
+
+  /* ---
+   * FUNCTION: showErrors()
+   *    Utility function that displays error modal if there are errors.
+   */
   showErrors: function(errors) {
     $('#error section').hide();
 
