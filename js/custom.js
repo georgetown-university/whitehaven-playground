@@ -1,4 +1,6 @@
 var doc = {
+  inlineCSS: 0,
+
   init: function() {
     var _this = this;
 
@@ -35,7 +37,65 @@ var doc = {
    */
   generate: function() {
     var code = $('#code').val();
+
+    this.cleanCode(code);
     $('#output').html(code);
+  },
+
+
+  /* ---
+   * FUNCTION: cleanCode()
+   *    Checks to make sure inputted code is OK (free of script tags).
+   */
+  cleanCode: function(code) {
+    var errors = [];
+
+    // Check for inline JS.
+    if (code.indexOf('<script') > -1) {
+      var goodCodeStart = code.split('<script')[0] || '',
+          goodCodeEnd   = code.split('</script>')[1] || '';
+
+      this.updateCode(goodCodeStart + goodCodeEnd);
+      errors.push('#error-js');
+    }
+
+    // Check for inline CSS.
+    if (code.indexOf('style=') > -1) {
+      this.inlineCSS++;
+
+      if (this.inlineCSS > 2) {
+        errors.push('#error-css-bad');
+      } else {
+        errors.push('#error-css');
+      }
+    }
+
+    // Display errors if there are any.
+    this.showErrors(errors);
+  },
+
+  showErrors: function(errors) {
+    $('#error section').hide();
+
+    if (errors) {
+      errors.forEach(function(el) {
+        $(el).show(); 
+      });
+
+      $('#error').modal('show');
+    }
+    
+    
+  },
+
+
+  /* ---
+   * FUNCTION: updateCode()
+   *    Utility function that updates the inputted code and regenerates output.
+   */
+  updateCode: function(newCode) {
+    $('#code').val(newCode);
+    this.generate();
   },
 
 
@@ -56,8 +116,7 @@ var doc = {
    *    When a user clicks on the "start over" button, the contents of the field deleted
    */
   clear: function() {
-    $('#code').val('');
-    this.generate();
+    this.updateCode('');
     this.updateDocumentation('default');
   },
 
@@ -70,10 +129,9 @@ var doc = {
   paste: function(el) {
     var id = $(el).attr('data-option');
     var html = $('#' + id).html();
-
     var currentCode = $('#code').val();
-    $('#code').val(currentCode + html);
-    this.generate();
+
+    this.updateCode(currentCode + html);
   },
 
 

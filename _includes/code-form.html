@@ -17,3 +17,38 @@
 </main>
 
 {% include code-templates.html %}
+
+<div class="modal fade" id="error" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Error!</h4>
+      </div>
+
+      <div class="modal-body">
+        <section id="error-js">
+          <p><strong>Inline Javascript</strong></p>
+          <p>Inline Javascript is not allowed.</p>
+        </section>
+
+        <section id="error-css">
+          <p><strong>Inline CSS</strong></p>
+          <p>We strongly recommend that you do not use inline CSS, since this code can potentially break the look and/or responsiveness of your site. Please remove your inline CSS for best results.</p>
+          <p>If you need help getting your styles looking just right, please contact the friendly folks in UIS for help.</p>
+        </section>
+
+        <section id="error-css-bad">
+          <p><strong>Inline CSS</strong></p>
+          <p>We noticed that you have not taken our advice about removing your inline CSS.  Seriously, remove it.</p>
+        </section>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
