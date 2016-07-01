@@ -5,7 +5,7 @@ documentation:
   - id: default
     title: Documentation
     content: | 
-      Content goes here.
+      Click on any of the code options above the editor to learn more about them!
 
   - id: buttons
     title: Buttons
