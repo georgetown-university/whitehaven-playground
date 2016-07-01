@@ -2,7 +2,16 @@
 
 <div class="container-fluid play-content">
   <div class="row">
-    {{content}}
+    {% include code-form.html %}
+
+    <aside class="col-xs-12 col-md-3 play-docs">
+      {% for doc in page.documentation %}
+      <section data-doc="{{ doc.id }}">
+        <h2>{{ doc.title }}</h2>
+        <p>{{ doc.content }}</p>
+      </section>
+      {% endfor %}
+    </aside>
   </div>
 </div>
 
