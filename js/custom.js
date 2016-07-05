@@ -1,6 +1,11 @@
 var doc = {
   inlineCSS: 0,
 
+  /* ---
+   * FUNCTION: init()
+   *    Initialization function that sets up all event handlers.
+   */
+
   init: function() {
     var _this = this;
 
@@ -9,23 +14,20 @@ var doc = {
     })
 
     $('#copy').click(function(e) { 
-      e.preventDefault();
-      _this.copy();
+      _this.copy(e); 
     });
 
     $('#clear').click(function(e) { 
-      e.preventDefault();
-      _this.clear();
+      _this.clear(e); 
     });
 
     $('#options a').click(function(e) { 
-      e.preventDefault();
-      _this.paste(this);
+      _this.paste(e, this); 
     });
 
-    $('.play-form .dropdown-toggle').click(function() {
+    $('.play-form .dropdown-toggle').click(function(e) {
       _this.updateDocumentation($(this).attr('data-docid'));
-    })
+    });
   },
 
 
@@ -106,7 +108,8 @@ var doc = {
    *    When a user clicks on the copy button, the contents of the field are
    *    copied to the clipboard.
    */
-  copy: function() {
+  copy: function(e) {
+    e.preventDefault();
     $('#code').select();
     document.execCommand('copy');
     document.getSelection().removeAllRanges();
@@ -117,7 +120,8 @@ var doc = {
    * FUNCTION: clear()
    *    When a user clicks on the "start over" button, the contents of the field deleted
    */
-  clear: function() {
+  clear: function(e) {
+    e.preventDefault();
     this.updateCode('');
     this.updateDocumentation('default');
   },
@@ -128,7 +132,8 @@ var doc = {
    *    When a user clicks on a code option, the HTML associated with that option
    *    is pasted into the field.
    */
-  paste: function(el) {
+  paste: function(e, el) {
+    e.preventDefault();
     var id = $(el).attr('data-option');
     var html = $('#' + id).html();
     var currentCode = $('#code').val();
