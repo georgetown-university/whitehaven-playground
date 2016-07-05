@@ -2,6 +2,42 @@
 
   <div class="row">
     <div class="col-xs-12">
+      <h2>Alignment:</h2>
+  
+      <!-- 
+       ** Block Alignment **
+      -->
+
+      <div class="dropdown">
+        <button class="btn btn-sm btn-secondary dropdown-toggle" id="alignment-block" data-docid="alignment-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Block
+        </button>
+        <div class="dropdown-menu" aria-labelledby="alignment-block">
+          <a class="dropdown-item" href="#" data-option="alignment-block-left">Left pull block</a>
+          <a class="dropdown-item" href="#" data-option="alignment-block-right">Right pull block</a>
+          <a class="dropdown-item" href="#" data-option="alignment-floatfix">Floatfix</a>
+        </div>
+      </div>
+
+      <!-- 
+       ** Text Alignment **
+      -->
+      <div class="dropdown">
+        <button class="btn btn-sm btn-secondary dropdown-toggle" id="alignment-text" data-docid="alignment-text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Text
+        </button>
+        <div class="dropdown-menu" aria-labelledby="alignment-text">
+          <a class="dropdown-item" href="#" data-option="alignment-text-left">Left</a>
+          <a class="dropdown-item" href="#" data-option="alignment-text-center">Center</a>
+          <a class="dropdown-item" href="#" data-option="alignment-text-right">Right</a>
+        </div>
+      </div>
+  
+    </div><!-- /.col-xs-12 -->
+  </div><!-- /.row -->
+
+  <div class="row">
+    <div class="col-xs-12">
       <h2>Buttons:</h2>
 
       <!-- 
@@ -68,15 +104,15 @@
       -->
 
       <div class="dropdown">
-        <button class="btn btn-sm btn-secondary dropdown-toggle" data-docid="cards" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-sm btn-secondary dropdown-toggle" id="card-regular" data-docid="cards" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Regular
         </button>
-        <div class="dropdown-menu" aria-labelledby="cards">
-          <a class="dropdown-item" href="#" data-option="card-blocklinks">Block Links</a>
-          <a class="dropdown-item" href="#" data-option="card-bulletlinks">Bullet Links</a>
-          <a class="dropdown-item" href="#" data-option="card-callout">Callout</a>
-          <a class="dropdown-item" href="#" data-option="card-notice">Notice</a>
-          <a class="dropdown-item" href="#" data-option="card-profile">Profile</a>
+        <div class="dropdown-menu" aria-labelledby="card-regular">
+          <a class="dropdown-item" href="#" data-option="card-regular-blocklinks">Block Links</a>
+          <a class="dropdown-item" href="#" data-option="card-regular-bulletlinks">Bullet Links</a>
+          <a class="dropdown-item" href="#" data-option="card-regular-callout">Callout</a>
+          <a class="dropdown-item" href="#" data-option="card-regular-notice">Notice</a>
+          <a class="dropdown-item" href="#" data-option="card-regular-profile">Profile</a>
         </div>
       </div>
 
@@ -84,23 +120,23 @@
        ** Image Overlay Cards **
       -->
       <div class="dropdown">
-        <button class="btn btn-sm btn-secondary dropdown-toggle" data-docid="imgovrlay" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-sm btn-secondary dropdown-toggle" id="card-imgovrlay" data-docid="imgovrlay" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Image Overlay
         </button>
-        <div class="dropdown-menu" aria-labelledby="cards">
-          <a class="dropdown-item" href="#" data-option="imgovrlay-topleft">Top Left</a>
-          <a class="dropdown-item" href="#" data-option="imgovrlay-topcenter">Top Center</a>
-          <a class="dropdown-item" href="#" data-option="imgovrlay-topright">Top Right</a>
-          <a class="dropdown-item" href="#" data-option="imgovrlay-middleleft">Middle Left</a>
-          <a class="dropdown-item" href="#" data-option="imgovrlay-middlecenter">Middle Center</a>
-          <a class="dropdown-item" href="#" data-option="imgovrlay-middleright">Middle Right</a>
-          <a class="dropdown-item" href="#" data-option="imgovrlay-bottomleft">Bottom Left</a>
-          <a class="dropdown-item" href="#" data-option="imgovrlay-bottomcenter">Bottom Center</a>
-          <a class="dropdown-item" href="#" data-option="imgovrlay-bottomright">Bottom Right</a>
-          <a class="dropdown-item" href="#" data-option="imgovrlay-largetop">Large Top</a>
-          <a class="dropdown-item" href="#" data-option="imgovrlay-largemiddle">Large Middle</a>
-          <a class="dropdown-item" href="#" data-option="imgovrlay-largebottom">Large Bottom</a>
-          <a class="dropdown-item" href="#" data-option="imgovrlay-faded">Faded</a>
+        <div class="dropdown-menu" aria-labelledby="card-imgovrlay">
+          <a class="dropdown-item" href="#" data-option="card-imgovrlay-topleft">Top Left</a>
+          <a class="dropdown-item" href="#" data-option="card-imgovrlay-topcenter">Top Center</a>
+          <a class="dropdown-item" href="#" data-option="card-imgovrlay-topright">Top Right</a>
+          <a class="dropdown-item" href="#" data-option="card-imgovrlay-middleleft">Middle Left</a>
+          <a class="dropdown-item" href="#" data-option="card-imgovrlay-middlecenter">Middle Center</a>
+          <a class="dropdown-item" href="#" data-option="card-imgovrlay-middleright">Middle Right</a>
+          <a class="dropdown-item" href="#" data-option="card-imgovrlay-bottomleft">Bottom Left</a>
+          <a class="dropdown-item" href="#" data-option="card-imgovrlay-bottomcenter">Bottom Center</a>
+          <a class="dropdown-item" href="#" data-option="card-imgovrlay-bottomright">Bottom Right</a>
+          <a class="dropdown-item" href="#" data-option="card-imgovrlay-largetop">Large Top</a>
+          <a class="dropdown-item" href="#" data-option="card-imgovrlay-largemiddle">Large Middle</a>
+          <a class="dropdown-item" href="#" data-option="card-imgovrlay-largebottom">Large Bottom</a>
+          <a class="dropdown-item" href="#" data-option="card-imgovrlay-faded">Faded</a>
         </div>
       </div>
 
@@ -108,12 +144,12 @@
        ** Card Decks **
       -->
       <div class="dropdown">
-        <button class="btn btn-sm btn-secondary dropdown-toggle" data-docid="deck" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-sm btn-secondary dropdown-toggle" id="card-deck" data-docid="deck" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Deck
         </button>
-        <div class="dropdown-menu" aria-labelledby="cards">
-          <a class="dropdown-item" href="#" data-option="deck-regular">Regular</a>
-          <a class="dropdown-item" href="#" data-option="deck-two">Two Per Row</a>
+        <div class="dropdown-menu" aria-labelledby="card-deck">
+          <a class="dropdown-item" href="#" data-option="card-deck-regular">Regular</a>
+          <a class="dropdown-item" href="#" data-option="card-deck-two">Two Per Row</a>
         </div>
       </div>
   

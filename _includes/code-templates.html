@@ -1,4 +1,43 @@
 <!-- 
+ ** Alignment: Block **
+-->
+
+<script id="alignment-block-left" type="text/template">
+<img class="pull-md-left m-r-1 m-b-1" alt="[ALT]" src="http://placekitten.com/100/100" />
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet turpis ex. Proin porta id augue id euismod. Donec ut mauris ultricies, eleifend ligula ac, facilisis ipsum. Pellentesque a condimentum enim. Vivamus rhoncus nisl arcu, et placerat est laoreet nec. </p>
+</script>
+
+<script id="alignment-block-right" type="text/template">
+<img class="pull-md-right m-l-1 m-b-1" alt="[ALT]" src="http://placekitten.com/100/100" />
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet turpis ex. Proin porta id augue id euismod. Donec ut mauris ultricies, eleifend ligula ac, facilisis ipsum. Pellentesque a condimentum enim. Vivamus rhoncus nisl arcu, et placerat est laoreet nec. </p>
+</script>
+
+<script id="alignment-floatfix" type="text/template">
+<img class="pull-md-left m-r-1 m-b-1" alt="[ALT]" src="http://placekitten.com/100/100" />
+<ul class="floatfix">
+  <li>[CONTENT]</li>
+  <li>[CONTENT]</li>
+  <li>[CONTENT]</li>
+</ul>
+</script>
+
+<!-- 
+ ** Alignment: Text **
+-->
+
+<script id="alignment-text-left" type="text/template">
+<p class="text-xs-left">[CONTENT]</p>
+</script>
+
+<script id="alignment-text-center" type="text/template">
+<p class="text-xs-center">[CONTENT]</p>
+</script>
+
+<script id="alignment-text-right" type="text/template">
+<p class="text-xs-right">[CONTENT]</p>
+</script>
+
+<!-- 
  ** Buttons: Filled **
 -->
 
@@ -74,10 +113,10 @@
 
 
 <!-- 
- ** Cards **
+ ** Regular Cards **
 -->
 
-<script id="card-blocklinks" type="text/template">
+<script id="card-regular-blocklinks" type="text/template">
 <div class="card links">
   <div class="card-block">
     <h3 class="card-title">[TITLE]</h3>
@@ -91,7 +130,7 @@
 </div>
 </script>
 
-<script id="card-bulletlinks" type="text/template">
+<script id="card-regular-bulletlinks" type="text/template">
 <div class="card">
   <div class="card-block">
     <h3 class="card-title">[TITLE]</h3>
@@ -104,7 +143,7 @@
 </div>
 </script>
 
-<script id="card-callout" type="text/template">
+<script id="card-regular-callout" type="text/template">
 <div class="card">
   <div class="card-block">
     <p class="card-text">[TEXT]</p>
@@ -112,7 +151,7 @@
 </div>
 </script>
 
-<script id="card-notice" type="text/template">
+<script id="card-regular-notice" type="text/template">
 <div class="card card-danger card-inverse">
   <div class="card-block">
     <p class="card-text">[TEXT]</p>
@@ -120,7 +159,7 @@
 </div>
 </script>
 
-<script id="card-profile" type="text/template">
+<script id="card-regular-profile" type="text/template">
 <div class="card">
   <h3 class="card-header">[TEXT]</h3>
   <img alt="[ALT]" src="http://placekitten.com/300/300" />
@@ -135,7 +174,7 @@
  ** Image Overlay Cards **
 -->
 
-<script id="imgovrlay-topleft" type="text/template">
+<script id="card-imgovrlay-topleft" type="text/template">
 <div class="card">
   <img class="card-img" alt="[ALT]" src="http://placekitten.com/900/900" />
   <div class="card-img-overlay position">
@@ -146,7 +185,7 @@
 </div>
 </script>
 
-<script id="imgovrlay-topcenter" type="text/template">
+<script id="card-imgovrlay-topcenter" type="text/template">
 <div class="card">
   <img class="card-img" alt="[ALT]" src="http://placekitten.com/900/900" />
   <div class="card-img-overlay position">
@@ -157,7 +196,7 @@
 </div>
 </script>
 
-<script id="imgovrlay-topright" type="text/template">
+<script id="card-imgovrlay-topright" type="text/template">
 <div class="card">
   <img class="card-img" alt="[ALT]" src="http://placekitten.com/900/900" />
   <div class="card-img-overlay position">
@@ -168,7 +207,7 @@
 </div>
 </script>
 
-<script id="imgovrlay-middleleft" type="text/template">
+<script id="card-imgovrlay-middleleft" type="text/template">
 <div class="card">
   <img class="card-img" alt="[ALT]" src="http://placekitten.com/900/900" />
   <div class="card-img-overlay position">
@@ -179,7 +218,7 @@
 </div>
 </script>
 
-<script id="imgovrlay-middlecenter" type="text/template">
+<script id="card-imgovrlay-middlecenter" type="text/template">
 <div class="card">
   <img class="card-img" alt="[ALT]" src="http://placekitten.com/900/900" />
   <div class="card-img-overlay position">
@@ -190,7 +229,7 @@
 </div>
 </script>
 
-<script id="imgovrlay-middleright" type="text/template">
+<script id="card-imgovrlay-middleright" type="text/template">
 <div class="card">
   <img class="card-img" alt="[ALT]" src="http://placekitten.com/900/900" />
   <div class="card-img-overlay position">
@@ -201,7 +240,7 @@
 </div>
 </script>
 
-<script id="imgovrlay-bottomleft" type="text/template">
+<script id="card-imgovrlay-bottomleft" type="text/template">
 <div class="card">
   <img class="card-img" alt="[ALT]" src="http://placekitten.com/900/900" />
   <div class="card-img-overlay position">
@@ -212,7 +251,7 @@
 </div>
 </script>
 
-<script id="imgovrlay-bottomcenter" type="text/template">
+<script id="card-imgovrlay-bottomcenter" type="text/template">
 <div class="card">
   <img class="card-img" alt="[ALT]" src="http://placekitten.com/900/900" />
   <div class="card-img-overlay position">
@@ -223,7 +262,7 @@
 </div>
 </script>
 
-<script id="imgovrlay-bottomright" type="text/template">
+<script id="card-imgovrlay-bottomright" type="text/template">
 <div class="card">
   <img class="card-img" alt="[ALT]" src="http://placekitten.com/900/900" />
   <div class="card-img-overlay position">
@@ -234,7 +273,7 @@
 </div>
 </script>
 
-<script id="imgovrlay-largetop" type="text/template">
+<script id="card-imgovrlay-largetop" type="text/template">
 <div class="card">
   <img class="card-img" alt="[ALT]" src="http://placekitten.com/900/900" />
   <div class="card-img-overlay position">
@@ -245,7 +284,7 @@
 </div>
 </script>
 
-<script id="imgovrlay-largemiddle" type="text/template">
+<script id="card-imgovrlay-largemiddle" type="text/template">
 <div class="card">
   <img class="card-img" alt="[ALT]" src="http://placekitten.com/900/900" />
   <div class="card-img-overlay position">
@@ -256,7 +295,7 @@
 </div>
 </script>
 
-<script id="imgovrlay-largebottom" type="text/template">
+<script id="card-imgovrlay-largebottom" type="text/template">
 <div class="card">
   <img class="card-img" alt="[ALT]" src="http://placekitten.com/900/900" />
   <div class="card-img-overlay position">
@@ -267,7 +306,7 @@
 </div>
 </script>
 
-<script id="imgovrlay-faded" type="text/template">
+<script id="card-imgovrlay-faded" type="text/template">
 <div class="card faded">
   <img class="card-img" alt="[ALT]" src="http://placekitten.com/900/900" />
   <div class="card-img-overlay position">
@@ -282,7 +321,7 @@
  ** Card Decks **
 -->
 
-<script id="deck-regular" type="text/template">
+<script id="card-deck-regular" type="text/template">
 <div class="card-deck">
   <div class="card">
     <div class="card-block">
@@ -305,7 +344,7 @@
 </div>
 </script>
 
-<script id="deck-two" type="text/template">
+<script id="card-deck-two" type="text/template">
 <div class="card-deck two">
   <div class="card">
     <div class="card-block">
