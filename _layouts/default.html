@@ -8,7 +8,7 @@
       {% for doc in page.documentation %}
       <section data-doc="{{ doc.id }}">
         <h2>{{ doc.title }}</h2>
-        <p>{{ doc.content }}</p>
+        <pre>{{ doc.content }}</pre>
       </section>
       {% endfor %}
     </aside>

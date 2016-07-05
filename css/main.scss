@@ -10,6 +10,8 @@ $maroon: #8a2432;
 $white: #fff;
 $gray: #eee;
 
+$sans: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 
 /* -----------------------
  * Global
@@ -57,7 +59,7 @@ header.play-header {
 
     h2 {
       display: inline-block;
-      font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-family: $sans;
       font-size: 1rem;
       font-weight: bold;
       margin: 0.5rem;
@@ -116,8 +118,10 @@ header.play-header {
     font-size: 1.25rem;
   }
 
-  p {
+  pre {
+    font-family: $sans;
     font-size: 0.9rem;
+    white-space: pre-line;
   }
 
   em {
