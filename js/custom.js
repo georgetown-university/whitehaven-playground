@@ -4,10 +4,9 @@ var doc = {
   init: function() {
     var _this = this;
 
-    $('#generate').click(function(e) { 
-      e.preventDefault();
+    $('#code').on('input propertychange paste', function() {
       _this.generate();
-    });
+    })
 
     $('#copy').click(function(e) { 
       e.preventDefault();
