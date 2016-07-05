@@ -51,7 +51,18 @@ header.play-header {
   }
 
   #options {
-    margin: 1rem 0;
+    background: $gray;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+
+    h2 {
+      display: inline-block;
+      font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 1rem;
+      font-weight: bold;
+      margin: 0.5rem;
+      width: 4rem;
+    }
 
     .dropdown {
       display: inline;
@@ -107,6 +118,11 @@ header.play-header {
 
   p {
     font-size: 0.9rem;
+  }
+
+  em {
+    color: $maroon;
+    font-weight: 500;
   }
 
   section {

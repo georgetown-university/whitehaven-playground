@@ -24,7 +24,7 @@ var doc = {
     });
 
     $('.play-form .dropdown-toggle').click(function() {
-      _this.updateDocumentation(this.id);
+      _this.updateDocumentation($(this).attr('data-docid'));
     })
   },
 
@@ -88,8 +88,6 @@ var doc = {
 
       $('#error').modal('show');
     }
-    
-    
   },
 
 
