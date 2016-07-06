@@ -12,6 +12,14 @@ $gray: #eee;
 
 $sans: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
+$md: 768px;
+
+@mixin breakpoint($size) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+
 
 /* -----------------------
  * Global
@@ -26,13 +34,21 @@ header.play-header {
   h1 {
     color: $white;
     margin: 0.65rem 0;
-    font-size: 2rem;
+    font-size: 1.2rem;
     letter-spacing: 1px;
+
+    @include breakpoint($md) {
+      font-size: 2rem;
+    }
   }
 }
 
 .play-content {
-  margin-top: 75px;
+  margin-top: 60px;
+
+  @include breakpoint($md) {
+    margin-top: 75px;
+  }
 }
 
 /* -----------------------
@@ -40,7 +56,11 @@ header.play-header {
  * ----------------------- */
 
 .play-form {
-  margin: 2rem 2rem 2rem 0;
+  margin: 1rem 0;
+
+  @include breakpoint($md) {
+    margin: 2rem 2rem 2rem 0;
+  }
 
   textarea#code {
     border: solid $maroon;
@@ -62,8 +82,12 @@ header.play-header {
       font-family: $sans;
       font-size: 1rem;
       font-weight: bold;
-      margin: 0.5rem;
-      width: 5rem;
+      margin: 0.5rem 0;
+      width: 100%;
+
+      @include breakpoint($md) {
+        width: 5.5rem;
+      }
     }
 
     .dropdown {
@@ -72,6 +96,11 @@ header.play-header {
 
     .btn {
       text-transform: none;
+      margin-bottom: 0.5rem;
+
+      @include breakpoint($md) {
+        margin-bottom: 0;
+      }
     }
   }
 }
@@ -89,7 +118,11 @@ header.play-header {
  * ----------------------- */
 
 .play-output {
-  margin: 3rem 2rem 2rem 0;
+  margin: 2rem 0;
+
+  @include breakpoint($md) {
+    margin: 3rem 2rem 2rem 0;
+  }
 
   & > h2 {
     background: $blue;
@@ -131,7 +164,11 @@ header.play-header {
 
   section {
     display: none;
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
+
+    @include breakpoint($md) {
+      padding: 2rem 1.5rem;
+    }
   }
 
   section[data-doc=default] {
