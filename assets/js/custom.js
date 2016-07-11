@@ -98,7 +98,7 @@ var doc = {
    *    Utility function that updates the inputted code and regenerates output.
    */
   updateCode: function(newCode) {
-    $('#code').val(newCode);
+    $('#code').val(newCode.trim());
     this.generate();
   },
 
