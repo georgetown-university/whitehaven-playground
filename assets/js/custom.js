@@ -139,6 +139,18 @@ var doc = {
     var currentCode = $('#code').val();
 
     this.updateCode(currentCode + html);
+
+    // For certain cases, 
+    switch(id) {
+      case 'snippets-expandable':
+        initExpandableContent();
+        break;
+      case 'snippets-filterable':
+        initFilterableLists();
+        break;
+      default:
+        break;
+    }
   },
 
 
