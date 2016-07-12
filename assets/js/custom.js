@@ -144,15 +144,13 @@ var doc = {
     var currentCode = $('#code').val();
 
     this.updateCode(html);
-    
-    //console.log(cursorPosition);
 
     // For certain cases, run function from Whitehaven theme JS to define events.
     switch(id) {
-      case 'snippets-expandable':
+      case 'snippet-content-expand':
         initExpandableContent();
         break;
-      case 'snippets-filterable':
+      case 'snippet-content-expand':
         initFilterableLists();
         break;
       default:
