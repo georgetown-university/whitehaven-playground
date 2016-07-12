@@ -135,7 +135,9 @@ header.play-header {
   #output {
     border: dashed $blue;
     border-width: 0 1px 1px;
+    display: inline-block;
     padding: 1rem;
+    width: 100%;
   }
 }
 
