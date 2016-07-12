@@ -98,7 +98,12 @@ var doc = {
    *    Utility function that updates the inputted code and regenerates output.
    */
   updateCode: function(newCode) {
-    $('#code').val(newCode.trim());
+    if (newCode) {
+      $('#code').insertAtCursor(newCode.trim());  
+    } else {
+      $('#code').val('').focus();
+    }
+    
     this.generate();
   },
 
@@ -122,7 +127,7 @@ var doc = {
    */
   clear: function(e) {
     e.preventDefault();
-    this.updateCode('');
+    this.updateCode(null);
     this.updateDocumentation('default');
   },
 
@@ -138,9 +143,11 @@ var doc = {
     var html = $('#' + id).html();
     var currentCode = $('#code').val();
 
-    this.updateCode(currentCode + html);
+    this.updateCode(html);
+    
+    //console.log(cursorPosition);
 
-    // For certain cases, 
+    // For certain cases, run function from Whitehaven theme JS to define events.
     switch(id) {
       case 'snippets-expandable':
         initExpandableContent();
@@ -168,3 +175,38 @@ var doc = {
 $(document).ready(function() {
   doc.init();
 });
+
+
+/* ---
+ * UTILITY FUNCTION: insertAtCursor()
+ *    Inserts new text wherever the cursor is in a text field.
+ *    Found here: https://richonrails.com/articles/text-area-manipulation-with-jquery
+ */
+$.fn.extend({
+  insertAtCursor: function(myValue) {
+    return this.each(function(i) {
+      if (document.selection) {
+        //For browsers like Internet Explorer
+        this.focus();
+        sel = document.selection.createRange();
+        sel.text = myValue;
+        this.focus();
+      }
+      else if (this.selectionStart || this.selectionStart == '0') {
+        //For browsers like Firefox and Webkit based
+        var startPos = this.selectionStart;
+        var endPos = this.selectionEnd;
+        var scrollTop = this.scrollTop;
+        this.value = this.value.substring(0, startPos) + myValue + 
+                this.value.substring(endPos,this.value.length);
+        this.focus();
+        this.selectionStart = startPos + myValue.length;
+        this.selectionEnd = startPos + myValue.length;
+        this.scrollTop = scrollTop;
+      } else {
+        this.value += myValue;
+        this.focus();
+      }
+    })
+  }
+})
