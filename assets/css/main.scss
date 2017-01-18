@@ -33,7 +33,7 @@ header.play-header {
 
   h1 {
     color: $white;
-    margin: 0.65rem 0;
+    margin: 0.65rem 1rem;
     font-size: 1.2rem;
     letter-spacing: 1px;
 
@@ -66,6 +66,7 @@ header.play-header {
     border: solid $maroon;
     border-width: 1px 1px 1px 1rem;
     font-family: monospace;
+    font-size: 1rem;
     height: 20rem;
     outline: none;
     padding: 1rem;
@@ -93,13 +94,17 @@ header.play-header {
 
     .dropdown {
       display: inline;
+
+      a {
+        font-size: 1rem;
+      }
     }
 
     .btn {
       font-size: 0.8rem;
       margin-bottom: 0.5rem;
       text-transform: none;
-      
+
       @include breakpoint($md) {
         margin-bottom: 0.25rem;
       }

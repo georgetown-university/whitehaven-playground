@@ -13,16 +13,16 @@ var doc = {
       _this.generate();
     })
 
-    $('#copy').click(function(e) { 
-      _this.copy(e); 
+    $('#copy').click(function(e) {
+      _this.copy(e);
     });
 
-    $('#clear').click(function(e) { 
-      _this.clear(e); 
+    $('#clear').click(function(e) {
+      _this.clear(e);
     });
 
-    $('#options a').click(function(e) { 
-      _this.paste(e, this); 
+    $('#options a').click(function(e) {
+      _this.paste(e, this);
     });
 
     $('.play-form .dropdown-toggle').click(function(e) {
@@ -85,7 +85,7 @@ var doc = {
 
     if (errors.length) {
       errors.forEach(function(el) {
-        $(el).show(); 
+        $(el).show();
       });
 
       $('#error').modal('show');
@@ -99,11 +99,11 @@ var doc = {
    */
   updateCode: function(newCode) {
     if (newCode) {
-      $('#code').insertAtCursor(newCode.trim());  
+      $('#code').insertAtCursor(newCode.trim());
     } else {
       $('#code').val('').focus();
     }
-    
+
     this.generate();
   },
 
@@ -150,7 +150,7 @@ var doc = {
       case 'snippet-content-expand':
         initExpandableContent();
         break;
-      case 'snippet-content-expand':
+      case 'snippet-list-filter':
         initFilterableLists();
         break;
       default:
@@ -195,7 +195,7 @@ $.fn.extend({
         var startPos = this.selectionStart;
         var endPos = this.selectionEnd;
         var scrollTop = this.scrollTop;
-        this.value = this.value.substring(0, startPos) + myValue + 
+        this.value = this.value.substring(0, startPos) + myValue +
                 this.value.substring(endPos,this.value.length);
         this.focus();
         this.selectionStart = startPos + myValue.length;
