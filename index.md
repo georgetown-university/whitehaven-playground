@@ -7,36 +7,36 @@ documentation:
     content: |
       Type in any HTML into the big text box.  Some code options above the text box have been provided to get you started.  Click on any of these code options to learn more about what they do.  
 
-      For best results, play around with the code, particularly the classes.  You will not break anything - we promise!
-      
+      For best results, play around with the code, particularly the classes. Don't be scared of the code.  It won't bite - we promise!
+
       A more comprehensive <a href="https://georgetown-university.github.io/whitehaven-guide/" target="_blank">guide to the Whitehaven theme</a> is available, if you need additional resources.
 
   - id: buttons
     title: Buttons
-    content: | 
+    content: |
       A more flexible way to implement calls-to-action is to use Buttons. Full documentation is available on <a href="http://v4-alpha.getbootstrap.com/components/buttons/" target="_blank">Bootstrap Buttons</a>, but here are some examples. Buttons are best used in Cards to provide a call-to-action, but can also be used alone in Primary or Secondary Body when attention is needed for a link. Buttons may also include additional code for icons.
-      
+
       <strong>Important!</strong> Block buttons should only be used inside smaller containers, such as Cards. Using them at the page level will result in buttons that span the entire width of the page.
 
   - id: cards
     title: Cards
     content: |
-      A more flexible way to implement callouts is to use Cards. Full documentation is available on <a href="http://v4-alpha.getbootstrap.com/components/card/" target="_blank">Bootstrap Cards</a>, including Card Decks, but here are some examples based on GU’s current callout styles. 
-      
+      A more flexible way to implement callouts is to use Cards. Full documentation is available on <a href="http://v4-alpha.getbootstrap.com/components/card/" target="_blank">Bootstrap Cards</a>, including Card Decks, but here are some examples based on GU’s current callout styles.
+
       The Card functionality allows you to mix-and-match items that you need, providing greater flexibility. Cards may be used in Primary Body, Secondary Body, Global Callout, or Page Callout. The design may be slightly different than illustrated here, due to differences of content.
 
   - id: imgovrlay
     title: Image Overlay Cards
     content: |
       For more flexibility than the standard Bootstrap image overlays, use the following code to change the position of the overlay text.
-      
+
       Additionally, adding an optional class of <em>.faded</em> will fade the underlying image so the text or button is easier to read.
 
   - id: deck
     title: Card Decks
     content: |
-      Card Decks group several Cards together, for when a collection of callouts is required. Any of the Card styles  can be used inside the Card Deck, as long as the outer container is a <em>div.card-deck</em> and the inner boxes are <em>div.card</em>. 
-      
+      Card Decks group several Cards together, for when a collection of callouts is required. Any of the Card styles  can be used inside the Card Deck, as long as the outer container is a <em>div.card-deck</em> and the inner boxes are <em>div.card</em>.
+
       There is no limit to the number of Cards that can be placed inside a Card Deck, but it works best with a minimum of <strong>two</strong>. There will be a maximum of three cards per row.
 
   - id: alignment-block

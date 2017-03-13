@@ -37,10 +37,11 @@ var doc = {
    *    the output block so that the user can see what that code will look like.
    */
   generate: function() {
-    var code = $('#code').val();
+    // Clean up the code in the code text area first.
+    var code = this.cleanCode( $('#code').val() );
 
-    this.cleanCode(code);
-    $('#output').html(code);
+    this.clear();
+    this.updateCode(code);
   },
 
 
@@ -49,14 +50,15 @@ var doc = {
    *    Checks to make sure inputted code is OK (free of script tags).
    */
   cleanCode: function(code) {
-    var errors = [];
+    var errors = [],
+        newCode = code;
 
     // Check for inline JS.
     if (code.indexOf('<script') > -1) {
       var goodCodeStart = code.split('<script')[0] || '',
           goodCodeEnd   = code.split('</script>')[1] || '';
 
-      this.updateCode(goodCodeStart + goodCodeEnd);
+      newCode = goodCodeStart + goodCodeEnd;
       errors.push('#error-js');
     }
 
@@ -71,8 +73,9 @@ var doc = {
       }
     }
 
-    // Display errors if there are any.
+    // Display errors and return cleaned code.
     this.showErrors(errors);
+    return newCode;
   },
 
 
@@ -85,6 +88,7 @@ var doc = {
 
     if (errors.length) {
       errors.forEach(function(el) {
+        console.log(el);
         $(el).show();
       });
 
@@ -97,14 +101,9 @@ var doc = {
    * FUNCTION: updateCode()
    *    Utility function that updates the inputted code and regenerates output.
    */
-  updateCode: function(newCode) {
-    if (newCode) {
-      $('#code').insertAtCursor(newCode.trim());
-    } else {
-      $('#code').val('').focus();
-    }
-
-    this.generate();
+  updateCode: function(code) {
+    $('#code').insertAtCursor(code);
+    $('#output').html(code);
   },
 
 
@@ -126,8 +125,9 @@ var doc = {
    *    When a user clicks on the "start over" button, the contents of the field deleted
    */
   clear: function(e) {
-    e.preventDefault();
-    this.updateCode(null);
+    if (e) { e.preventDefault(); }
+
+    $('#code').val('').focus();
     this.updateDocumentation('default');
   },
 
@@ -140,10 +140,9 @@ var doc = {
   paste: function(e, el) {
     e.preventDefault();
     var id = $(el).attr('data-option');
-    var html = $('#' + id).html();
-    var currentCode = $('#code').val();
+    var code = $('#' + id).html();
 
-    this.updateCode(html);
+    this.updateCode(code);
 
     // For certain cases, run function from Whitehaven theme JS to define events.
     switch(id) {
