@@ -37,11 +37,8 @@ var doc = {
    *    the output block so that the user can see what that code will look like.
    */
   generate: function() {
-    // Clean up the code in the code text area first.
-    var code = this.cleanCode( $('#code').val() );
-
-    this.clear();
-    this.updateCode(code);
+    this.cleanCode();
+    $('#output').html($('#code').val());
   },
 
 
@@ -50,6 +47,8 @@ var doc = {
    *    Checks to make sure inputted code is OK (free of script tags).
    */
   cleanCode: function(code) {
+    var code = $('#code').val();
+
     var errors = [],
         newCode = code;
 
@@ -73,9 +72,11 @@ var doc = {
       }
     }
 
-    // Display errors and return cleaned code.
+    // Display errors.
     this.showErrors(errors);
-    return newCode;
+
+    // Replace code block with new code.
+    $('#code').val(newCode);
   },
 
 
@@ -101,9 +102,10 @@ var doc = {
    * FUNCTION: updateCode()
    *    Utility function that updates the inputted code and regenerates output.
    */
-  updateCode: function(code) {
-    $('#code').insertAtCursor(code);
-    $('#output').html(code);
+  updateCode: function(newCode) {
+    var code = $('#code').val();
+    $('#code').val(code + '\n' + newCode);
+    this.generate();
   },
 
 
@@ -128,6 +130,7 @@ var doc = {
     if (e) { e.preventDefault(); }
 
     $('#code').val('').focus();
+    $('#output').html('');
     this.updateDocumentation('default');
   },
 
@@ -174,36 +177,38 @@ $(document).ready(function() {
 });
 
 
-/* ---
- * UTILITY FUNCTION: insertAtCursor()
- *    Inserts new text wherever the cursor is in a text field.
- *    Found here: https://richonrails.com/articles/text-area-manipulation-with-jquery
- */
-$.fn.extend({
-  insertAtCursor: function(myValue) {
-    return this.each(function(i) {
-      if (document.selection) {
-        //For browsers like Internet Explorer
-        this.focus();
-        sel = document.selection.createRange();
-        sel.text = myValue;
-        this.focus();
-      }
-      else if (this.selectionStart || this.selectionStart == '0') {
-        //For browsers like Firefox and Webkit based
-        var startPos = this.selectionStart;
-        var endPos = this.selectionEnd;
-        var scrollTop = this.scrollTop;
-        this.value = this.value.substring(0, startPos) + myValue +
-                this.value.substring(endPos,this.value.length);
-        this.focus();
-        this.selectionStart = startPos + myValue.length;
-        this.selectionEnd = startPos + myValue.length;
-        this.scrollTop = scrollTop;
-      } else {
-        this.value += myValue;
-        this.focus();
-      }
-    })
-  }
-})
+// /* ---
+//  * UTILITY FUNCTION: insertAtCursor()
+//  *    Inserts new text wherever the cursor is in a text field.
+//  *    Found here: https://richonrails.com/articles/text-area-manipulation-with-jquery
+//  */
+// $.fn.extend({
+//   insertAtCursor: function(myValue) {
+//     return this.each(function(i) {
+//       if (document.selection) {
+//         //For browsers like Internet Explorer
+//         this.focus();
+//         sel = document.selection.createRange();
+//         sel.text = myValue;
+//         this.focus();
+//       }
+//       else if (this.selectionStart || this.selectionStart == '0') {
+//         console.log(this);
+//
+//         //For browsers like Firefox and Webkit based
+//         var startPos = this.selectionStart;
+//         var endPos = this.selectionEnd;
+//         var scrollTop = this.scrollTop;
+//         this.value = this.value.substring(0, startPos) + myValue +
+//                 this.value.substring(endPos,this.value.length);
+//         this.focus();
+//         this.selectionStart = startPos + myValue.length;
+//         this.selectionEnd = startPos + myValue.length;
+//         this.scrollTop = scrollTop;
+//       } else {
+//         this.value += myValue;
+//         this.focus();
+//       }
+//     })
+//   }
+// })
