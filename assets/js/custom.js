@@ -28,6 +28,10 @@ var doc = {
     $('.play-form .dropdown-toggle').click(function(e) {
       _this.updateDocumentation($(this).attr('data-docid'));
     });
+
+    $('#csv').submit(function(e) {
+      _this.generateFromCSV(e);
+    })
   },
 
 
@@ -43,10 +47,48 @@ var doc = {
 
 
   /* ---
+   * FUNCTION: generateFromCSV()
+   *    Called when the user submits a CSV URL to generate a grid of stuff.
+   */
+  generateFromCSV: function(e) {
+    e.preventDefault();
+    var url = $('#csv-url').val();
+    var json = csvToJson.go(url);
+
+    if (json) {
+      let code = $('#code').val();
+      let grid = '';
+
+      for (let i=0; i<json.length; i++) {
+        grid += `
+          <div class="col-lg-2 col-md-4 col-sm-12">
+            <a href="/node/${json[i].node}">
+              <img src="${json[i].photo}" alt="Portrait of ${json[i].name.trim()}">
+              <p>${json[i].name.trim()}</p>
+            </a>
+          </div>
+        `;
+      }
+
+      let completeGrid = `
+        <div class="container">
+          <div class="row">
+            ${grid}
+          </div>
+        </div>
+      `;
+
+      $('#code').val(code + completeGrid);
+      this.generate();
+    }
+  },
+
+
+  /* ---
    * FUNCTION: cleanCode()
    *    Checks to make sure inputted code is OK (free of script tags).
    */
-  cleanCode: function(code) {
+  cleanCode: function() {
     var code = $('#code').val();
 
     var errors = [],

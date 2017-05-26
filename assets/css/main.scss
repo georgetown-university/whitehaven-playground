@@ -20,6 +20,33 @@ $md: 768px;
   }
 }
 
+%options-block {
+  background: $gray;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+
+  h2 {
+    font-family: $sans;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-family: $sans;
+    font-size: 0.8rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    text-transform: none;
+
+    @include breakpoint($md) {
+      margin-bottom: 0.25rem;
+    }
+  }
+}
+
 
 /* -----------------------
  * Global
@@ -74,15 +101,10 @@ header.play-header {
   }
 
   #options {
-    background: $gray;
-    margin-bottom: 0.5rem;
-    padding: 1rem;
+    @extend %options-block;
 
     h2 {
       display: inline-block;
-      font-family: $sans;
-      font-size: 0.8rem;
-      font-weight: bold;
       margin: 0.5rem 0;
       width: 100%;
 
@@ -99,15 +121,15 @@ header.play-header {
         font-size: 1rem;
       }
     }
+  }
 
-    .btn {
-      font-size: 0.8rem;
-      margin-bottom: 0.5rem;
-      text-transform: none;
+  #options-csv {
+    @extend %options-block;
 
-      @include breakpoint($md) {
-        margin-bottom: 0.25rem;
-      }
+    input:not(.btn) {
+      font-size: 1rem;
+      padding: 2px 0.5rem;
+      width: 75%;
     }
   }
 }
