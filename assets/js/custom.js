@@ -61,21 +61,21 @@ var doc = {
 
       for (let i=0; i<json.length; i++) {
         grid += `
-          <div class="col-lg-2 col-md-4 col-sm-12">
-            <a href="/node/${json[i].node}">
-              <img src="${json[i].photo}" alt="Portrait of ${json[i].name.trim()}">
-              <p>${json[i].name.trim()}</p>
-            </a>
-          </div>
+<div class="col-lg-2 col-md-4 col-sm-12">
+  <a href="/node/${json[i].node}">
+    <img src="${json[i].photo}" alt="Portrait of ${json[i].name.trim()}">
+    <p>${json[i].name.trim()}</p>
+  </a>
+</div>
         `;
       }
 
       let completeGrid = `
-        <div class="container">
-          <div class="row">
-            ${grid}
-          </div>
-        </div>
+<div class="container">
+  <div class="row">
+    ${grid}
+  </div>
+</div>
       `;
 
       $('#code').val(code + completeGrid);
