@@ -1,5 +1,6 @@
 var doc = {
   inlineCSS: 0,
+  fileJson: [],
 
   /* ---
    * FUNCTION: init()
@@ -52,34 +53,49 @@ var doc = {
    */
   generateFromCSV: function(e) {
     e.preventDefault();
-    var url = $('#csv-url').val();
-    var json = csvToJson.go(url);
+    var file = $('#csv-url').prop('files')[0];
+    var _this = this;
 
-    if (json) {
-      let code = $('#code').val();
-      let grid = '';
+    // Read the file that was inputted by the user.
+    if (file) {
+      var reader = new FileReader();
+      reader.readAsText(file);
 
-      for (let i=0; i<json.length; i++) {
-        grid += `
+      // Load file contents.
+      reader.onload = function(e) {
+        csvToJson.processData(reader.result);
+        var json = csvToJson.json;
+
+        // If there is JSON data, create code!
+        if (json) {
+          let code = $('#code').val();
+          let grid = '';
+
+          for (let i=0; i<json.length; i++) {
+            // Individual grid item.
+            grid += `
 <div class="col-lg-2 col-md-4 col-sm-12">
   <a href="/node/${json[i].node}">
     <img src="${json[i].photo}" alt="Portrait of ${json[i].name.trim()}">
     <p>${json[i].name.trim()}</p>
   </a>
 </div>
-        `;
-      }
+            `;
+          }
 
-      let completeGrid = `
+          // Grid container.
+          let completeGrid = `
 <div class="container">
   <div class="row">
     ${grid}
   </div>
 </div>
-      `;
+          `;
 
-      $('#code').val(code + completeGrid);
-      this.generate();
+          $('#code').val(code + completeGrid);
+          _this.generate();
+        }
+      }
     }
   },
 

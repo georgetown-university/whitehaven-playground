@@ -127,9 +127,9 @@ header.play-header {
     @extend %options-block;
 
     input:not(.btn) {
+      display: block;
       font-size: 1rem;
-      padding: 2px 0.5rem;
-      width: 75%;
+      margin-bottom: 1rem;
     }
   }
 }
