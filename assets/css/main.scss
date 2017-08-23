@@ -25,6 +25,12 @@ $md: 768px;
   margin-bottom: 0.5rem;
   padding: 1rem;
 
+  h2 {
+    font-family: $sans;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
   p, form {
     font-family: $sans;
     font-size: 0.9rem;
