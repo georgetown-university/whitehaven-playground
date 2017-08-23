@@ -25,25 +25,15 @@ $md: 768px;
   margin-bottom: 0.5rem;
   padding: 1rem;
 
-  h2 {
+  p, form {
     font-family: $sans;
-    font-size: 0.8rem;
-    font-weight: bold;
-  }
-
-  p {
-    font-family: $sans;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
   }
 
   .btn {
     font-size: 0.8rem;
-    margin-bottom: 0.5rem;
     text-transform: none;
-
-    @include breakpoint($md) {
-      margin-bottom: 0.25rem;
-    }
   }
 }
 
@@ -103,15 +93,9 @@ header.play-header {
   #options {
     @extend %options-block;
 
-    h2 {
+    p {
       display: inline-block;
-      margin: 0.5rem 0;
-      width: 100%;
-
-      @include breakpoint($md) {
-        margin-bottom: 0.25rem;
-        width: 4.5rem;
-      }
+      width: 5.5rem;
     }
 
     .dropdown {
@@ -127,9 +111,23 @@ header.play-header {
     @extend %options-block;
 
     input:not(.btn) {
-      display: block;
+      display: inline-block;
       font-size: 1rem;
       margin-bottom: 1rem;
+    }
+
+    input[type=radio] {
+      margin-left: 0.5rem;
+      margin-right: 0.25rem;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
+
+    label {
+      font-weight: bold;
+      margin-right: 0.5rem;
     }
   }
 }

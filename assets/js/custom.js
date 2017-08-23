@@ -53,48 +53,50 @@ var doc = {
    */
   generateFromCSV: function(e) {
     e.preventDefault();
-    var file = $('#csv-url').prop('files')[0];
-    var _this = this;
+
+    // Only proceed if we actually have a file.
+    const file = $('#csv-url').prop('files')[0];
+    if (!file) { return false; }
+
+    // Figure out what column classes we will need.
+    const cols = $('input[name=cols]:checked').val();
+    const colClasses = (cols == 4) ? 'col-lg-3 col-md-6 col-sm-12' : 'col-lg-2 col-md-4 col-sm-12';
 
     // Read the file that was inputted by the user.
-    if (file) {
-      var reader = new FileReader();
-      reader.readAsText(file);
+    var reader = new FileReader();
+    reader.readAsText(file);
 
-      // Load file contents.
-      reader.onload = function(e) {
-        csvToJson.processData(reader.result);
-        var json = csvToJson.json;
+    // Load file contents.
+    reader.onload = (e) => {
+      csvToJson.processData(reader.result);
+      var json = csvToJson.json;
 
-        // If there is JSON data, create code!
-        if (json) {
-          let code = $('#code').val();
-          let grid = '';
+      // If there is JSON data, create code!
+      if (json) {
+        let code = $('#code').val();
+        let grid = '';
 
-          for (let i=0; i<json.length; i++) {
-            // Individual grid item.
-            grid += `
-<div class="col-lg-2 col-md-4 col-sm-12">
+        for (let i=0; i<json.length; i++) {
+          // Individual grid item.
+          grid += `
+<div class=${colClasses}>
   <a href="/node/${json[i].node}">
     <img src="${json[i].photo}" alt="Portrait of ${json[i].name.trim()}">
     <p>${json[i].name.trim()}</p>
   </a>
-</div>
-            `;
-          }
+</div>`;
+        }
 
-          // Grid container.
-          let completeGrid = `
+        // Grid container.
+        let completeGrid = `
 <div class="container">
   <div class="row">
     ${grid}
   </div>
-</div>
-          `;
+</div>`;
 
-          $('#code').val(code + completeGrid);
-          _this.generate();
-        }
+        $('#code').val(code + completeGrid);
+        this.generate();
       }
     }
   },

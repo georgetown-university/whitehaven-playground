@@ -8,7 +8,17 @@
   </p>
 
   <form id="csv">
-    <input id="csv-url" type="file" placeholder="URL of your CSV file">
+    <fieldset>
+      <label>CSV file:</label>
+      <input id="csv-url" type="file" placeholder="URL of your CSV file">
+    </fieldset>
+
+    <fieldset>
+      <label>Number of columns:</label>
+      <input name="cols" type="radio" value="4"> 4 Columns
+      <input name="cols" type="radio" value="6" checked> 6 Columns
+    </fieldset>
+
     <input type="submit" class="btn btn-small btn-primary" value="Generate code">
   </form>
 </div>
